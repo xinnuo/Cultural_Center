@@ -9,9 +9,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.support.annotation.Nullable;
 
-import com.lzy.extend.StringDialogCallback;
 import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.ruanmeng.share.BaseHttp;
 import com.ruanmeng.utils.PreferencesUtils;

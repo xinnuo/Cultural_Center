@@ -37,6 +37,9 @@ public class CommonUtil {
         return netstate;
     }
 
+    /**
+     * 得到设备屏幕的宽度
+     */
     public static int getScreenWidth(Context context) {
         WindowManager manager = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();
@@ -46,6 +49,9 @@ public class CommonUtil {
         //return display.getWidth();
     }
 
+    /**
+     * 得到设备屏幕的高度
+     */
     public static int getScreenHeight(Context context) {
         WindowManager manager = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();
