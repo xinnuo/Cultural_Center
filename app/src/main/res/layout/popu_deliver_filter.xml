@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#44000000">
+
+    <View
+        android:id="@+id/filter_outer"
+        android:layout_width="50dp"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/filter_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_padding_top"
+                android:background="@color/navigationBarColor"/>
+
+            <TextView
+                style="@style/Font14_black_dark"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/margin_space"
+                android:text="非遗类型" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:layout_marginRight="@dimen/margin_space"
+                android:background="@color/divider" />
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/filter_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_space"
+                android:layout_marginTop="@dimen/margin_space"
+                android:paddingLeft="@dimen/dimen_size_5"
+                android:paddingRight="@dimen/dimen_size_5"
+                app:max_select="1" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:layout_marginRight="@dimen/margin_space"
+                android:background="@color/divider" />
+
+            <TextView
+                style="@style/Font14_black_dark"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/margin_space"
+                android:text="非遗等级" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:layout_marginRight="@dimen/margin_space"
+                android:background="@color/divider" />
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/filter_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_space"
+                android:layout_marginTop="@dimen/margin_space"
+                android:paddingLeft="@dimen/dimen_size_5"
+                android:paddingRight="@dimen/dimen_size_5"
+                app:max_select="1" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/filter_reset"
+                style="@style/Font14_black_dark"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="doClick"
+                android:text="重置" />
+
+            <TextView
+                android:id="@+id/filter_sure"
+                style="@style/Font14_white"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@mipmap/lanse_kuang"
+                android:gravity="center"
+                android:onClick="doClick"
+                android:text="确定" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

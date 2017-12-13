@@ -1,0 +1,1 @@
+include ':app', ':okgo-lib', ':MNProgressHUD', ':MNImageBrowser', ':RollViewPager', ':SuperText', ':CalendarView', ':WCViewpPager', ':RatingBar', ':JCVideoPlayer', ':UmengSocial'

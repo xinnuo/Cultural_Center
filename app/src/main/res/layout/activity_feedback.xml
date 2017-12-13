@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ruanmeng.cultural_center.FeedbackActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/dimen_size_15">
+
+        <EditText
+            android:id="@+id/et_content"
+            style="@style/Font13_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rec_bg_f7f7f7_stroke_cccccc"
+            android:gravity="top"
+            android:hint="请填写您的宝贵意见~（150字以内）"
+            android:maxLength="150"
+            android:minLines="8"
+            android:padding="10dp" />
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <Button
+        android:id="@+id/feedback_submit"
+        style="@style/Font15_white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rec_ova_bg_white_stroke_blue"
+        android:onClick="doClick"
+        android:text="提交"
+        android:textColor="@color/colorAccent" />
+
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/item_organ_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        app:sBottomLineMargin="10dp"
+        app:sLeftTextColor="@color/black_dark"
+        app:sLeftTextMarginLeft="@dimen/margin_space"
+        app:sLeftTextString="创作研究部"
+        app:sLineShow="bottom"
+        app:sRightIconMarginRight="@dimen/margin_space"
+        app:sRightIconRes="@mipmap/icon_you"
+        app:sRightIconSize="15dp"
+        app:sRightTextColor="@color/light"
+        app:sRightTextMarginRight="30dp" />
+
+</LinearLayout>

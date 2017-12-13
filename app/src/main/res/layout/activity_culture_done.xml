@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Font14_black_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="恭喜您，已成功报名！"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/culture_done"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/dimen_size_40" />
+
+    <TextView
+        style="@style/Font12_black_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_space"
+        android:text="(长按二维码保存至相册)"
+        android:textColor="@color/colorAccent"/>
+
+</LinearLayout>

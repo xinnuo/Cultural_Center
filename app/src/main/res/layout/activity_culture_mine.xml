@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ruanmeng.cultural_center.CultureMineActivity">
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_check1"
+            style="@style/Font14_black"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="进行中"
+            android:textColor="@color/rb_remote_selector_color" />
+
+        <View
+            android:layout_width="@dimen/divider_height"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/margin_space"
+            android:layout_marginTop="@dimen/margin_space"
+            android:background="@color/divider" />
+
+        <RadioButton
+            android:id="@+id/radio_check2"
+            style="@style/Font14_black"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="已结束"
+            android:textColor="@color/rb_remote_selector_color" />
+
+    </RadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginTop="@dimen/margin_space"
+        android:background="@color/divider" />
+
+    <include layout="@layout/layout_list" />
+
+</LinearLayout>

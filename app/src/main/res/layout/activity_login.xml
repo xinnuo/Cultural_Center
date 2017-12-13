@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/beijing_sky"
+    android:orientation="vertical"
+    tools:context="com.ruanmeng.cultural_center.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/dimen_size_40"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/margin_space"
+            android:paddingRight="@dimen/margin_space">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="@dimen/margin_space"
+                android:src="@mipmap/icon_xiaoshou" />
+
+            <EditText
+                android:id="@+id/et_name"
+                style="@style/Font13_white"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="请输入手机号"
+                android:inputType="number"
+                android:maxLength="11"
+                android:maxLines="1" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/margin_space"
+            android:paddingRight="@dimen/margin_space">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="@dimen/margin_space"
+                android:src="@mipmap/icon_mima" />
+
+            <EditText
+                android:id="@+id/et_pwd"
+                style="@style/Font13_white"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="请输入6~20位密码"
+                android:inputType="textPassword"
+                android:maxLength="20" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/divider" />
+
+        <Button
+            android:id="@+id/bt_login"
+            style="@style/Font15_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_size_5"
+            android:layout_marginTop="@dimen/dimen_size_15"
+            android:background="@mipmap/dise_denglu"
+            android:onClick="doClick"
+            android:text="登录" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_size_10"
+            android:layout_marginRight="@dimen/dimen_size_10">
+
+            <TextView
+                android:id="@+id/tv_sign"
+                style="@style/Font13_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawablePadding="@dimen/dimen_size_5"
+                android:drawableRight="@mipmap/you_zhuanbai"
+                android:onClick="doClick"
+                android:padding="10dp"
+                android:text="立即注册" />
+
+            <TextView
+                android:id="@+id/tv_forget"
+                style="@style/Font13_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:drawablePadding="@dimen/dimen_size_5"
+                android:drawableRight="@mipmap/you_zhuanbai"
+                android:onClick="doClick"
+                android:padding="10dp"
+                android:text="忘记密码" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

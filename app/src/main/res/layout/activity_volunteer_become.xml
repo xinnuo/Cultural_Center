@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ruanmeng.cultural_center.VolunteerBecomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/margin_space"
+                android:paddingRight="@dimen/margin_space">
+
+                <TextView
+                    style="@style/Font13_black_dark"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="姓名" />
+
+                <EditText
+                    android:id="@+id/et_name"
+                    style="@style/Font13_black_dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_height"
+                    android:background="@android:color/white"
+                    android:hint="请输入您的姓名"
+                    android:maxLength="12"
+                    android:paddingLeft="@dimen/margin_space" />
+
+            </LinearLayout>
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/vol_gender"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_46"
+                app:sBothLineMargin="@dimen/margin_space"
+                app:sLeftTextColor="@color/black_dark"
+                app:sLeftTextMarginLeft="@dimen/margin_space"
+                app:sLeftTextSize="13sp"
+                app:sLeftTextString="性别"
+                app:sLineShow="both"
+                app:sRightIconMarginRight="@dimen/margin_space"
+                app:sRightIconRes="@mipmap/hui_you"
+                app:sRightIconSize="15dp"
+                app:sRightTextColor="@color/light"
+                app:sRightTextMarginRight="30dp"
+                app:sRightTextSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/margin_space"
+                android:paddingRight="@dimen/margin_space">
+
+                <TextView
+                    style="@style/Font13_black_dark"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="年龄" />
+
+                <EditText
+                    android:id="@+id/et_age"
+                    style="@style/Font13_black_dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_height"
+                    android:background="@android:color/white"
+                    android:hint="请输入您的年龄"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:paddingLeft="@dimen/margin_space" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:layout_marginRight="@dimen/margin_space"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/margin_space"
+                android:paddingRight="@dimen/margin_space">
+
+                <TextView
+                    style="@style/Font13_black_dark"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="身份证号码" />
+
+                <EditText
+                    android:id="@+id/et_card"
+                    style="@style/Font13_black_dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_height"
+                    android:background="@android:color/white"
+                    android:digits="0123456789Xx"
+                    android:hint="请输入您的身份证号码"
+                    android:inputType="number"
+                    android:maxLength="18"
+                    android:paddingLeft="@dimen/margin_space" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:layout_marginRight="@dimen/margin_space"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/margin_space"
+                android:paddingRight="@dimen/margin_space">
+
+                <TextView
+                    style="@style/Font13_black_dark"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="联系方式" />
+
+                <EditText
+                    android:id="@+id/et_tel"
+                    style="@style/Font13_black_dark"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_height"
+                    android:background="@android:color/white"
+                    android:hint="请输入您的联系方式"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:paddingLeft="@dimen/margin_space" />
+
+            </LinearLayout>
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/vol_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_46"
+                app:sBothLineMargin="@dimen/margin_space"
+                app:sLeftTextColor="@color/black_dark"
+                app:sLeftTextMarginLeft="@dimen/margin_space"
+                app:sLeftTextSize="13sp"
+                app:sLeftTextString="地址"
+                app:sLineShow="both"
+                app:sRightIconMarginRight="@dimen/margin_space"
+                app:sRightIconRes="@mipmap/hui_you"
+                app:sRightIconSize="15dp"
+                app:sRightTextColor="@color/light"
+                app:sRightTextMarginRight="30dp"
+                app:sRightTextSize="13sp" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/vol_job"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_46"
+                app:sBottomLineMargin="@dimen/margin_space"
+                app:sLeftTextColor="@color/black_dark"
+                app:sLeftTextMarginLeft="@dimen/margin_space"
+                app:sLeftTextSize="13sp"
+                app:sLeftTextString="从业状况"
+                app:sLineShow="bottom"
+                app:sRightIconMarginRight="@dimen/margin_space"
+                app:sRightIconRes="@mipmap/hui_you"
+                app:sRightIconSize="15dp"
+                app:sRightTextColor="@color/light"
+                app:sRightTextMarginRight="30dp"
+                app:sRightTextSize="13sp" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/vol_edu"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_46"
+                app:sBottomLineMargin="@dimen/margin_space"
+                app:sLeftTextColor="@color/black_dark"
+                app:sLeftTextMarginLeft="@dimen/margin_space"
+                app:sLeftTextSize="13sp"
+                app:sLeftTextString="最高学历"
+                app:sLineShow="bottom"
+                app:sRightIconMarginRight="@dimen/margin_space"
+                app:sRightIconRes="@mipmap/hui_you"
+                app:sRightIconSize="15dp"
+                app:sRightTextColor="@color/light"
+                app:sRightTextMarginRight="30dp"
+                app:sRightTextSize="13sp" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/vol_outlook"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_size_46"
+                app:sBottomLineMargin="@dimen/margin_space"
+                app:sLeftTextColor="@color/black_dark"
+                app:sLeftTextMarginLeft="@dimen/margin_space"
+                app:sLeftTextSize="13sp"
+                app:sLeftTextString="政治面貌"
+                app:sLineShow="bottom"
+                app:sRightIconMarginRight="@dimen/margin_space"
+                app:sRightIconRes="@mipmap/hui_you"
+                app:sRightIconSize="15dp"
+                app:sRightTextColor="@color/light"
+                app:sRightTextMarginRight="30dp"
+                app:sRightTextSize="13sp" />
+
+            <TextView
+                style="@style/Font13_black_dark"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/margin_space"
+                android:text="简介" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/dimen_size_15"
+                android:paddingLeft="@dimen/dimen_size_15"
+                android:paddingRight="@dimen/dimen_size_15">
+
+                <EditText
+                    android:id="@+id/et_content"
+                    style="@style/Font13_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rec_bg_trans_stroke_cccccc"
+                    android:gravity="top"
+                    android:hint="请输入您的简介（300字以内）"
+                    android:maxLength="300"
+                    android:minLines="6"
+                    android:padding="10dp" />
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginLeft="@dimen/margin_space"
+                android:layout_marginRight="@dimen/margin_space"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_size_15"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/vol_img"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@mipmap/icon_add" />
+
+                <TextView
+                    style="@style/Font13_black_dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_space"
+                    android:text="点击上传头像" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/divider" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_submit"
+            style="@style/Font15_white"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rec_ova_bg_white_stroke_blue"
+            android:onClick="doClick"
+            android:text="提交"
+            android:textColor="@color/colorAccent" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
