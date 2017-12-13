@@ -10,6 +10,7 @@ import com.ruanmeng.base.*
 import com.ruanmeng.share.BaseHttp
 import com.ruanmeng.utils.ActivityStack
 import com.ruanmeng.utils.CommonUtil
+import com.ruanmeng.utils.DeviceHelper
 import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
 
@@ -31,6 +32,14 @@ class LoginActivity : BaseActivity() {
         if (getString("mobile").isNotEmpty()) {
             et_name.setText(getString("mobile"))
             et_name.setSelection(et_name.text.length)
+        }
+
+        if (intent.getBooleanExtra("offLine", false)) {
+
+            toast("当前账户在其他设备登录")
+
+            clearData()
+            ActivityStack.getScreenManager().popAllActivityExcept(MainActivity::class.java, LoginActivity::class.java)
         }
     }
 
@@ -64,6 +73,7 @@ class LoginActivity : BaseActivity() {
                         .params("accountName", et_name.text.toString())
                         .params("password", et_pwd.text.toString())
                         .params("loginType", "mobile")
+                        .params("deviceId", DeviceHelper.getDeviceIdIMEI(baseContext))
                         .execute(object : StringDialogCallback(this@LoginActivity) {
 
                             override fun onSuccessResponse(response: Response<String>, msg: String, msgCode: String) {
@@ -81,5 +91,15 @@ class LoginActivity : BaseActivity() {
             R.id.tv_sign ->   startActivity(RegisterActivity::class.java)
             R.id.tv_forget -> startActivity(ForgetActivity::class.java)
         }
+    }
+
+    private fun clearData() {
+        putBoolean("isLogin", false)
+        putBoolean("voulunteer", false)
+        putString("hotline", "")
+        putString("nickName", "")
+        putString("sex", "")
+        putString("token", "")
+        putString("userhead", "")
     }
 }

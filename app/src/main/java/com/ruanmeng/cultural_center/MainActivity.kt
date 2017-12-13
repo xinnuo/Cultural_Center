@@ -1,5 +1,6 @@
 package com.ruanmeng.cultural_center
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
@@ -112,6 +113,14 @@ class MainActivity : BaseActivity() {
     fun onMessageEvent(event: MainMessageEvent) {
         when(event.name) {
             "退出登录" -> main_check1.performClick()
+            "异地登录" -> {
+                main_check1.performClick()
+                window.decorView.postDelayed({
+                    val intent = Intent(baseContext, LoginActivity::class.java)
+                    intent.putExtra("offLine", true)
+                    startActivity(intent)
+                }, 300)
+            }
         }
     }
 }

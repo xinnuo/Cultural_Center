@@ -11,8 +11,14 @@ import android.support.annotation.Nullable;
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
+import com.ruanmeng.model.MainMessageEvent;
 import com.ruanmeng.share.BaseHttp;
+import com.ruanmeng.utils.DeviceHelper;
 import com.ruanmeng.utils.PreferencesUtils;
+
+import org.greenrobot.eventbus.EventBus;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -86,17 +92,29 @@ public class LoginCheckService extends Service {
      * 获取系统时间戳
      */
     public void getTimestamp() {
-        OkGo.<String>post(BaseHttp.check_userdevice)
-                .headers("token", PreferencesUtils.getString(this, "token"))
-                .params("deviceId", "")
-                .execute(new StringNoDialogCallback(this) {
+        if (PreferencesUtils.getBoolean(this, "isLogin", false)) {
+            OkGo.<String>post(BaseHttp.check_userdevice)
+                    .headers("token", PreferencesUtils.getString(this, "token"))
+                    .params("deviceId", DeviceHelper.getDeviceIdIMEI(this))
+                    .execute(new StringNoDialogCallback() {
 
-                    @Override
-                    public void onSuccessResponse(Response<String> response, String msg, String msgCode) {
+                        @Override
+                        public void onSuccessResponse(Response<String> response, String msg, String msgCode) {
+                            try {
+                                JSONObject obj = new JSONObject(response.body());
+                                if (obj.isNull("logindevice")) return;
 
-                    }
+                                String logindevice = obj.getString("logindevice");
+                                if ("1".equals(logindevice)) {
+                                    EventBus.getDefault().post(new MainMessageEvent("异地登录"));
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
 
-                });
+                    });
+        }
     }
 
     @Override

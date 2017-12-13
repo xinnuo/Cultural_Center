@@ -46,7 +46,10 @@ class GuideActivity : BaseActivity() {
         // window.decorView.postDelayed({ handler.sendEmptyMessage(0) }, 2000)
 
         AndPermission.with(this@GuideActivity)
-                .permission(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .permission(
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_PHONE_STATE)
                 .callback(object : PermissionListener {
                     override fun onSucceed(requestCode: Int, grantPermissions: MutableList<String>) {
                         handler.sendEmptyMessage(0)
