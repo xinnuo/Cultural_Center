@@ -8,20 +8,25 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.widget.CompoundButton
-import com.ruanmeng.base.BaseActivity
-import com.ruanmeng.base.getBoolean
-import com.ruanmeng.base.startActivity
-import com.ruanmeng.base.toast
+import com.lzy.extend.jackson.JacksonDialogCallback
+import com.lzy.okgo.OkGo
+import com.lzy.okgo.model.Response
+import com.ruanmeng.base.*
 import com.ruanmeng.fragment.MainFirstFragment
 import com.ruanmeng.fragment.MainFourthFragment
 import com.ruanmeng.fragment.MainSecondFragment
 import com.ruanmeng.fragment.MainThirdFragment
+import com.ruanmeng.model.CommonData
+import com.ruanmeng.model.CommonModel
 import com.ruanmeng.model.MainMessageEvent
+import com.ruanmeng.share.BaseHttp
 import kotlinx.android.synthetic.main.activity_main.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
 class MainActivity : BaseActivity() {
+
+    val list = ArrayList<CommonData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +36,7 @@ class MainActivity : BaseActivity() {
 
         EventBus.getDefault().register(this@MainActivity)
 
+        getData()
         main_check1.performClick()
     }
 
@@ -77,16 +83,41 @@ class MainActivity : BaseActivity() {
     override fun doClick(v: View) {
         super.doClick(v)
         when (v.id) {
-            R.id.first_venue ->   startActivity(VenueActivity::class.java)
-            R.id.first_culture -> startActivity(CultureActivity::class.java)
-            R.id.second_img ->    startActivity(UnionActivity::class.java)
-            R.id.second_yuan ->   startActivity(RemoteActivity::class.java)
-            R.id.second_fei ->    startActivity(DeliverActivity::class.java)
-            R.id.second_wang ->   startActivity(ArtActivity::class.java)
-            R.id.second_zhuan ->  startActivity(SpecialActivity::class.java)
-            R.id.second_qun ->    startActivity(SocietyActivity::class.java)
-            R.id.second_zhi ->    startActivity(VolunteerActivity::class.java)
+            R.id.first_venue -> {
+                if (list.isEmpty()) startActivity(VenueActivity::class.java)
+                else {
+                    if (list.any { it.barName == "场馆预定" }) {
+                        startActivity(VenueActivity::class.java)
+                    } else {
+                        toast("该功能暂未开放！")
+                    }
+                }
+            }
+            R.id.first_culture -> {
+                if (list.isEmpty()) startActivity(CultureActivity::class.java)
+                else {
+                    if (list.any { it.barName == "文化活动" }) {
+                        startActivity(CultureActivity::class.java)
+                    } else {
+                        toast("该功能暂未开放！")
+                    }
+                }
+            }
+            R.id.second_img -> startActivity(UnionActivity::class.java)
         }
+    }
+
+    override fun getData() {
+        OkGo.post<CommonModel>(BaseHttp.bar_list)
+                .tag(this@MainActivity)
+                .execute(object : JacksonDialogCallback<CommonModel>(baseContext, CommonModel::class.java) {
+
+                    override fun onSuccess(response: Response<CommonModel>) {
+                        list.clear()
+                        list.addItems(response.body().barList)
+                    }
+
+                })
     }
 
     private var exitTime: Long = 0
@@ -111,7 +142,7 @@ class MainActivity : BaseActivity() {
 
     @Subscribe
     fun onMessageEvent(event: MainMessageEvent) {
-        when(event.name) {
+        when (event.name) {
             "退出登录" -> main_check1.performClick()
             "异地登录" -> {
                 main_check1.performClick()

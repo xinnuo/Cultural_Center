@@ -14,7 +14,8 @@
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:overScrollMode="never" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,202 +48,13 @@
                 android:layout_height="@dimen/divider_height"
                 android:background="@color/divider" />
 
-            <LinearLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/second_list"
+                android:paddingLeft="@dimen/dimen_size_3"
+                android:paddingTop="@dimen/dimen_size_10"
+                android:paddingBottom="@dimen/dimen_size_5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_space">
-
-                <FrameLayout
-                    android:id="@+id/second_yuan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_size_3"
-                    android:layout_weight="1"
-                    android:background="@mipmap/bigicon_yuancheng"
-                    android:clickable="true"
-                    android:onClick="doClick">
-
-                    <TextView
-                        style="@style/Font14_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="38dp"
-                        android:layout_marginTop="5dp"
-                        android:text="远程辅导" />
-
-                    <TextView
-                        style="@style/Font14_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Remote tutor" />
-
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/second_fei"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@mipmap/bigicon_chuancheng"
-                    android:clickable="true"
-                    android:onClick="doClick">
-
-                    <TextView
-                        style="@style/Font14_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="38dp"
-                        android:layout_marginTop="5dp"
-                        android:text="非遗传承" />
-
-                    <TextView
-                        style="@style/Font14_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Inheriting the culture" />
-
-                </FrameLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <FrameLayout
-                    android:id="@+id/second_wang"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_size_3"
-                    android:layout_weight="1"
-                    android:background="@mipmap/bigicon_wangshang"
-                    android:clickable="true"
-                    android:onClick="doClick">
-
-                    <TextView
-                        style="@style/Font14_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="38dp"
-                        android:layout_marginTop="5dp"
-                        android:text="网上展厅" />
-
-                    <TextView
-                        style="@style/Font14_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Online exhibition hall" />
-
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/second_zhuan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@mipmap/bigicon_zhuanti"
-                    android:clickable="true"
-                    android:onClick="doClick">
-
-                    <TextView
-                        style="@style/Font14_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="38dp"
-                        android:layout_marginTop="5dp"
-                        android:text="专题文化" />
-
-                    <TextView
-                        style="@style/Font14_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Special culture" />
-
-                </FrameLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_size_5">
-
-                <FrameLayout
-                    android:id="@+id/second_qun"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimen_size_3"
-                    android:layout_weight="1"
-                    android:background="@mipmap/bigicon_shetuan"
-                    android:clickable="true"
-                    android:onClick="doClick">
-
-                    <TextView
-                        style="@style/Font14_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="38dp"
-                        android:layout_marginTop="5dp"
-                        android:text="群文社团" />
-
-                    <TextView
-                        style="@style/Font14_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginTop="5dp"
-                        android:text="community" />
-
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/second_zhi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@mipmap/bigicon_zhiyuan"
-                    android:clickable="true"
-                    android:onClick="doClick">
-
-                    <TextView
-                        style="@style/Font14_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="38dp"
-                        android:layout_marginTop="5dp"
-                        android:text="志愿者活动" />
-
-                    <TextView
-                        style="@style/Font14_white"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Volunteer activities" />
-
-                </FrameLayout>
-
-            </LinearLayout>
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 

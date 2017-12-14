@@ -20,6 +20,7 @@ public class BaseHttp {
     public static String programa_list = baseIp + "/programa_list.rm";   //活动栏目
     public static String activity_apply = baseIp + "/activity_apply.rm"; //活动报名
     public static String get_district = baseIp + "/get_district.rm";     //地区筛选
+    public static String bar_list = baseIp + "/bar_list.rm";             //可用模块
 
     public static String venue_index = baseIp + "/venue_index.rm";                 //场馆
     public static String venue_details = baseIp + "/venue_details.rm";             //场馆详细信息

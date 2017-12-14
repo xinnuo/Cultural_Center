@@ -22,7 +22,7 @@ class SpecialActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_venue)
-        init_title("专题文化")
+        init_title("文化专题")
 
         swipe_refresh.isRefreshing = true
         getData(pageNum)
@@ -30,7 +30,7 @@ class SpecialActivity : BaseActivity() {
 
     override fun init_title() {
         super.init_title()
-        empty_hint.text = "暂无专题文化信息！"
+        empty_hint.text = "暂无文化专题信息！"
 
         swipe_refresh.refresh { getData(1) }
         recycle_list.load_Linear(baseContext, swipe_refresh) {

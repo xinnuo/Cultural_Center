@@ -51,6 +51,8 @@ data class CommonModel(
 
         var relatedNews: List<CommonData>? = ArrayList(),
 
+        var barList: List<CommonData>? = ArrayList(),
+
         var heritageList: List<CommonData>? = ArrayList(),
         var heritagetype: List<CommonData>? = ArrayList(),
         var heritagelevel: List<CommonData>? = ArrayList(),

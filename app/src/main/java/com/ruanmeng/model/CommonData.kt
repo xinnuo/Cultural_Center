@@ -118,6 +118,10 @@ data class CommonData(
         var areaId: String = "",
         var areaName: String = "",
 
+        var barId: String = "",
+        var barName: String = "",
+        var resId: Int = -1,
+
         //首页轮播图
         var href: String = "",
         var sliderId: String = "",

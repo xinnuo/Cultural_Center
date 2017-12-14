@@ -1,5 +1,6 @@
 package com.lzy.extend.jackson;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.lzy.extend.BaseResponse;
 import com.lzy.okgo.callback.AbsCallback;
 import com.lzy.okgo.request.base.Request;
@@ -65,9 +66,13 @@ public abstract class JacksonCallback<T> extends AbsCallback<T> {
 
                     BaseResponse baseResponse = new BaseResponse();
                     baseResponse.data = JsonUtil.jsonToBean(new JSONObject(json).getJSONObject("data").toString(), clazzArgument);
-                    // T t = JsonUtil.jsonToBean(json, new TypeReference<T>() { }); //解析成为LinkedHashMap
                     response.close();
                     return (T) baseResponse;
+                } else {
+
+                    T t = JsonUtil.jsonToBean(json, new TypeReference<T>() { }); //解析成为LinkedHashMap
+                    response.close();
+                    return t;
                 }
             }
         } else {
