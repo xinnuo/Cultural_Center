@@ -73,31 +73,20 @@
             app:sRightTextColor="@color/light"
             app:sRightTextMarginRight="30dp" />
 
-        <LinearLayout
+        <com.allen.library.SuperTextView
+            android:id="@+id/setting_cache"
             android:layout_width="match_parent"
             android:layout_height="@dimen/line_height"
-            android:background="@color/white"
-            android:gravity="center_vertical"
-            android:paddingLeft="@dimen/margin_space"
-            android:paddingRight="@dimen/margin_space">
-
-            <TextView
-                style="@style/Font14_black_dark"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="清除缓存" />
-
-            <com.suke.widget.SwitchButton
-                android:id="@+id/setting_switch"
-                android:layout_width="55dp"
-                android:layout_height="32dp"
-                app:sb_checked="true"
-                app:sb_checked_color="@color/colorAccent"
-                app:sb_shadow_effect="true"
-                app:sb_show_indicator="false" />
-
-        </LinearLayout>
+            app:sBottomLineMargin="10dp"
+            app:sLeftTextColor="@color/black_dark"
+            app:sLeftTextMarginLeft="@dimen/margin_space"
+            app:sLeftTextString="清除缓存"
+            app:sLineShow="bottom"
+            app:sRightIconMarginRight="@dimen/margin_space"
+            app:sRightIconSize="15dp"
+            app:sRightTextColor="@color/colorAccent"
+            app:sRightTextString="0B"
+            app:sRightTextMarginRight="15dp" />
 
         <com.allen.library.SuperTextView
             android:id="@+id/setting_tel"
@@ -107,13 +96,12 @@
             app:sLeftTextColor="@color/black_dark"
             app:sLeftTextMarginLeft="@dimen/margin_space"
             app:sLeftTextString="联系我们"
-            app:sLineShow="both"
+            app:sLineShow="bottom"
             app:sRightIconMarginRight="@dimen/margin_space"
             app:sRightIconRes="@mipmap/hui_you"
             app:sRightIconSize="15dp"
             app:sRightTextColor="@color/light"
-            app:sRightTextMarginRight="30dp"
-            app:sTopLineMargin="@dimen/margin_space" />
+            app:sRightTextMarginRight="30dp" />
 
     </LinearLayout>
 

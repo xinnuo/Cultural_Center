@@ -5,10 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.ruanmeng.base.BaseFragment
-import com.ruanmeng.base.GlideApp
-import com.ruanmeng.base.load_Grid
-import com.ruanmeng.base.startActivity
+import com.ruanmeng.base.*
 import com.ruanmeng.cultural_center.*
 import com.ruanmeng.model.CommonData
 import com.ruanmeng.view.FullyGridLayoutManager
@@ -62,7 +59,7 @@ class MainSecondFragment : BaseFragment() {
                 resId = R.mipmap.bigicon_shetuan
             })
             items.add(CommonData().apply {
-                title = "志愿者活动"
+                title = "文化志愿"
                 content = "Volunteer activities"
                 resId = R.mipmap.bigicon_zhiyuan
             })
@@ -104,9 +101,9 @@ class MainSecondFragment : BaseFragment() {
                 resId = R.mipmap.bigicon_shetuan
             })
 
-            if (mlist.any { it.barName == "志愿者活动" })
+            if (mlist.any { it.barName == "文化志愿" })
             items.add(CommonData().apply {
-                title = "志愿者活动"
+                title = "文化志愿"
                 content = "Volunteer activities"
                 resId = R.mipmap.bigicon_zhiyuan
             })
@@ -119,7 +116,18 @@ class MainSecondFragment : BaseFragment() {
         iv_nav_back.visibility = View.INVISIBLE
         tv_nav_title.text = "文化"
 
-        Glide.with(activity)
+        second_img.setOnClickListener {
+            val mlist = (activity as MainActivity).list
+
+            if (mlist.isEmpty()) startActivity(UnionActivity::class.java)
+            else {
+                if (mlist.any { it.barName == "文化联盟" }) {
+                    startActivity(UnionActivity::class.java)
+                } else {
+                    toast("该功能暂未开放！")
+                }
+            }
+        }
 
         GlideApp.with(activity)
                 .load(R.mipmap.datu_tu)
@@ -143,7 +151,7 @@ class MainSecondFragment : BaseFragment() {
                                         "网上展厅" -> startActivity(ArtActivity::class.java)
                                         "文化专题" -> startActivity(SpecialActivity::class.java)
                                         "群文社团" -> startActivity(SocietyActivity::class.java)
-                                        "志愿者活动" -> startActivity(VolunteerActivity::class.java)
+                                        "文化志愿" -> startActivity(VolunteerActivity::class.java)
                                     }
                                 }
                     }

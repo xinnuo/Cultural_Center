@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="文化馆联盟" />
+                    android:text="文化联盟" />
 
             </FrameLayout>
 

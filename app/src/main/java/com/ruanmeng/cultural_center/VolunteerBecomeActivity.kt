@@ -135,11 +135,15 @@ class VolunteerBecomeActivity : BaseActivity() {
                                 object : DialogHelper.AddressCallBack {
 
                                     override fun doWork(pos_province: Int, pos_city: Int, pos_district: Int) {
-                                        address = list_province[pos_province].areaName + list_city[pos_city].areaName + list_district[pos_district].areaName
+                                        address = when {
+                                            list_district.size > 0 -> list_province[pos_province].areaName + list_city[pos_city].areaName + list_district[pos_district].areaName
+                                            list_city.size > 0 -> list_province[pos_province].areaName + list_city[pos_city].areaName
+                                            else -> list_province[pos_province].areaName
+                                        }
 
                                         province = list_province[pos_province].areaId
-                                        city = list_city[pos_city].areaId
-                                        district = list_district[pos_district].areaId
+                                        city = if (list_city.isEmpty()) "" else list_city[pos_city].areaId
+                                        district = if (list_district.isEmpty()) "" else list_district[pos_district].areaId
 
                                         vol_address.setRightString(address)
                                     }

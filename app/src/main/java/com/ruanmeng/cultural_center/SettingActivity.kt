@@ -4,8 +4,10 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import com.luck.picture.lib.tools.PictureFileUtils
 import com.ruanmeng.base.*
 import com.ruanmeng.model.MainMessageEvent
+import com.ruanmeng.utils.GlideCacheUtil
 import kotlinx.android.synthetic.main.activity_setting.*
 import org.greenrobot.eventbus.EventBus
 
@@ -20,6 +22,8 @@ class SettingActivity : BaseActivity() {
 
     override fun init_title() {
         super.init_title()
+        setting_cache.setRightString(GlideCacheUtil.getInstance().getCacheSize(this@SettingActivity))
+
         setting_feedback.setOnClickListener { startActivity(FeedbackActivity::class.java) }
         setting_problem.setOnClickListener  {
             val intent = Intent(baseContext, WebActivity::class.java)
@@ -31,7 +35,9 @@ class SettingActivity : BaseActivity() {
             intent.putExtra("title", "关于我们")
             startActivity(intent)
         }
+
         setting_password.setOnClickListener { startActivity(PasswordActivity::class.java) }
+
         setting_tel.setOnClickListener      {
             AlertDialog.Builder(this)
                     .setTitle("客服电话")
@@ -47,6 +53,7 @@ class SettingActivity : BaseActivity() {
                     .create()
                     .show()
         }
+
         bt_quit.setOnClickListener {
             AlertDialog.Builder(this)
                     .setTitle("退出登录")
@@ -64,6 +71,22 @@ class SettingActivity : BaseActivity() {
 
                         EventBus.getDefault().post(MainMessageEvent("退出登录"))
                         onBackPressed()
+                    }
+                    .setNegativeButton("取消") { dialog, _ -> dialog.dismiss() }
+                    .create()
+                    .show()
+        }
+
+        setting_cache.setOnClickListener {
+            AlertDialog.Builder(this)
+                    .setTitle("清空缓存")
+                    .setMessage("确定要清空缓存吗？")
+                    .setPositiveButton("清空") { dialog, _ ->
+                        dialog.dismiss()
+
+                        GlideCacheUtil.getInstance().clearImageAllCache(baseContext)
+                        PictureFileUtils.deleteCacheDirFile(baseContext)
+                        setting_cache.setRightString("0.0B")
                     }
                     .setNegativeButton("取消") { dialog, _ -> dialog.dismiss() }
                     .create()

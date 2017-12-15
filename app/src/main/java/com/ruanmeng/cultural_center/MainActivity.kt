@@ -103,7 +103,6 @@ class MainActivity : BaseActivity() {
                     }
                 }
             }
-            R.id.second_img -> startActivity(UnionActivity::class.java)
         }
     }
 
