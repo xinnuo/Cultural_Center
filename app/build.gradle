@@ -76,7 +76,7 @@ dependencies {
     compile 'com.android.support:design:' + versions.supportLibraryVersion
     compile 'com.android.support:support-v4:' + versions.supportLibraryVersion
     compile 'com.android.support.constraint:constraint-layout:' + versions.constraintLayoutVersion
-    compile 'org.jetbrains.kotlin:kotlin-stdlib-jre7:' + versions.kotlin_version
+    compile 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:' + versions.kotlin_version
     testCompile 'junit:junit:4.12'
 
     compile project(':okgo-lib')
