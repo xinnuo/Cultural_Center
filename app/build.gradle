@@ -28,14 +28,14 @@ android {
         debug {
             //显示Log打印输出
             buildConfigField "boolean", "LOG_DEBUG", "true"
-            buildConfigField "String", "API_HOST", "\"http://122.114.212.120:8087\""
+            buildConfigField "String", "API_HOST", "\"http://47.98.37.219:8080\""
             minifyEnabled false   //混淆编译
             zipAlignEnabled false //Zip代码压缩优化
         }
         release {
             //不显示Log打印输出
             buildConfigField "boolean", "LOG_DEBUG", "false"
-            buildConfigField "String", "API_HOST", "\"http://122.114.212.120:8087\""
+            buildConfigField "String", "API_HOST", "\"http://47.98.37.219:8080\""
             minifyEnabled false  //混淆编译
             zipAlignEnabled true //Zip代码压缩优化
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
