@@ -21,11 +21,11 @@ class SocietySecondFragment : BaseFragment() {
 
     private val list = ArrayList<Any>()
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
-            inflater!!.inflate(R.layout.fragment_special_fourth, container, false)
+            inflater.inflate(R.layout.fragment_special_fourth, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init_title()
 
@@ -37,7 +37,7 @@ class SocietySecondFragment : BaseFragment() {
         empty_hint.text = "暂无成员信息！"
 
         swipe_refresh.refresh { getData(1) }
-        recycle_list.load_Linear(activity, swipe_refresh) {
+        recycle_list.load_Linear(activity!!, swipe_refresh) {
             if (!isLoadingMore) {
                 isLoadingMore = true
                 getData(pageNum)
@@ -53,7 +53,7 @@ class SocietySecondFragment : BaseFragment() {
                             .visibility(R.id.item_office_divider1, if (list.indexOf(data) == 0) View.GONE else View.VISIBLE)
 
                             .with<RoundedImageView>(R.id.item_office_img) { view ->
-                                GlideApp.with(activity)
+                                GlideApp.with(activity!!)
                                         .load(BaseHttp.baseImg + data.clubMemberHead)
                                         .placeholder(R.mipmap.icon_touxiang) //等待时的图片
                                         .error(R.mipmap.icon_touxiang)       //加载失败的图片
@@ -67,7 +67,7 @@ class SocietySecondFragment : BaseFragment() {
     override fun getData(pindex: Int) {
         OkGo.post<ClubModel>(BaseHttp.club_member)
                 .tag(this@SocietySecondFragment)
-                .params("clubId", arguments.getString("clubId"))
+                .params("clubId", arguments!!.getString("clubId"))
                 .params("page", pindex)
                 .execute(object : JacksonDialogCallback<ClubModel>(activity, ClubModel::class.java) {
 

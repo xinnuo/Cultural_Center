@@ -28,7 +28,7 @@ class MainSecondFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_main_second, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init_title()
 
@@ -129,7 +129,7 @@ class MainSecondFragment : BaseFragment() {
             }
         }
 
-        GlideApp.with(activity)
+        GlideApp.with(activity!!)
                 .load(R.mipmap.datu_tu)
                 .placeholder(R.mipmap.not_4) //等待时的图片
                 .error(R.mipmap.not_4)       //加载失败的图片

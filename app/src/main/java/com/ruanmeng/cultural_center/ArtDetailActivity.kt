@@ -1,6 +1,5 @@
 package com.ruanmeng.cultural_center
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.ImageView
@@ -55,13 +54,9 @@ class ArtDetailActivity : BaseActivity() {
 
                                 view.setOnClickListener {
                                     val imgs = ArrayList<String>()
-                                    list.mapTo(imgs) { it.imgs  }
+                                    list.mapTo(imgs) { BaseHttp.baseImg + it.imgs }
 
-                                    MNImageBrowser.showImageBrowser(
-                                            baseContext,
-                                            view,
-                                            list.indexOf(data),
-                                            imgs)
+                                    MNImageBrowser.showImageBrowser(baseContext, view, list.indexOf(data), imgs)
                                 }
                             }
                 }
@@ -142,7 +137,7 @@ class ArtDetailActivity : BaseActivity() {
                             addItems(response.body().onlineartList)
                         }
 
-                        mAdapter.updateData(list).notifyDataSetChanged()
+                        mAdapter.updateData(list)
                     }
 
                     override fun onFinish() {

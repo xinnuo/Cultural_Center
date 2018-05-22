@@ -6,7 +6,6 @@ import android.support.design.widget.TabLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import android.widget.ImageView
 import com.lzy.extend.jackson.JacksonDialogCallback
 import com.lzy.okgo.OkGo
@@ -43,7 +42,7 @@ class MainThirdFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_main_third, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init_title()
 
@@ -63,7 +62,7 @@ class MainThirdFragment : BaseFragment() {
                 override fun onTabSelected(tab: TabLayout.Tab) {
                     newsTypeId = list_item[tab.position].newsTypeId
 
-                    activity.window.decorView.postDelayed({ activity.runOnUiThread {
+                    activity!!.window.decorView.postDelayed({ activity!!.runOnUiThread {
                         OkGo.getInstance().cancelTag(this@MainThirdFragment)
                         updateList()
                     } }, 300)
@@ -72,7 +71,7 @@ class MainThirdFragment : BaseFragment() {
             })
 
         swipe_refresh.refresh { getData(1) }
-        recycle_list.load_Linear(activity, swipe_refresh) {
+        recycle_list.load_Linear(activity!!, swipe_refresh) {
             if (!isLoadingMore) {
                 isLoadingMore = true
                 getData(pageNum)
@@ -90,7 +89,7 @@ class MainThirdFragment : BaseFragment() {
                             .visibility(R.id.item_first_divider3, if (list.indexOf(data) != list.size - 1) View.GONE else View.VISIBLE)
 
                             .with<ImageView>(R.id.item_first_img) { view ->
-                                GlideApp.with(context)
+                                GlideApp.with(activity!!)
                                         .load(BaseHttp.baseImg + data.newsHead)
                                         .placeholder(R.mipmap.not_2) //等待时的图片
                                         .error(R.mipmap.not_2)       //加载失败的图片

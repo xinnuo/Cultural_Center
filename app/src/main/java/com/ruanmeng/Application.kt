@@ -32,6 +32,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
 import android.os.IBinder
+import android.support.multidex.MultiDexApplication
 import com.lzy.okgo.OkGo
 import com.lzy.okgo.cache.CacheEntity
 import com.lzy.okgo.cache.CacheMode
@@ -54,7 +55,7 @@ import java.util.logging.Level
  * 创建人：小卷毛
  * 创建时间：2017-10-12 17:43
  */
-class Application : android.app.Application() {
+class Application : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()

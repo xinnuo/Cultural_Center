@@ -24,11 +24,11 @@ class SpecialThirdFragment : BaseFragment() {
 
     private val list = ArrayList<Any>()
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
-            inflater!!.inflate(R.layout.fragment_special_third, container, false)
+            inflater.inflate(R.layout.fragment_special_third, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init_title()
 
@@ -53,7 +53,7 @@ class SpecialThirdFragment : BaseFragment() {
         mAdapter = SlimAdapter.create()
                 .register<CommonData>(R.layout.item_special_album) { data, injector ->
                     injector.with<ImageView>(R.id.item_album_img) { view ->
-                        GlideApp.with(activity)
+                        GlideApp.with(activity!!)
                                 .load(BaseHttp.baseImg + data.imgs)
                                 .placeholder(R.mipmap.not_2) // 等待时的图片
                                 .error(R.mipmap.not_2)       // 加载失败的图片
@@ -79,7 +79,7 @@ class SpecialThirdFragment : BaseFragment() {
     override fun getData(pindex: Int) {
         OkGo.post<CultureModel>(BaseHttp.culture_img)
                 .tag(this@SpecialThirdFragment)
-                .params("cultureId", arguments.getString("cultureId"))
+                .params("cultureId", arguments!!.getString("cultureId"))
                 .params("page", pindex)
                 .execute(object : JacksonDialogCallback<CultureModel>(activity, CultureModel::class.java) {
 

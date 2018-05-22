@@ -1,6 +1,5 @@
 package com.ruanmeng.fragment
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +27,7 @@ class MainFourthFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_main_fourth, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init_title()
     }
@@ -84,7 +83,7 @@ class MainFourthFragment : BaseFragment() {
                         fourth_vol.setLeftString(if (getBoolean("voulunteer")) "我是志愿者" else "我要成为志愿者")
 
                         if (fourth_img.getTag(R.id.fourth_img) == null) {
-                            GlideApp.with(activity)
+                            GlideApp.with(activity!!)
                                     .load(BaseHttp.baseImg + getString("userhead"))
                                     .placeholder(R.mipmap.icon_touxiang)
                                     .error(R.mipmap.icon_touxiang)
@@ -94,7 +93,7 @@ class MainFourthFragment : BaseFragment() {
                             fourth_img.setTag(R.id.fourth_img, getString("userhead"))
                         } else {
                             if (fourth_img.getTag(R.id.fourth_img) != getString("userhead")) {
-                                GlideApp.with(activity)
+                                GlideApp.with(activity!!)
                                         .load(BaseHttp.baseImg + getString("userhead"))
                                         .placeholder(R.mipmap.icon_touxiang)
                                         .error(R.mipmap.icon_touxiang)

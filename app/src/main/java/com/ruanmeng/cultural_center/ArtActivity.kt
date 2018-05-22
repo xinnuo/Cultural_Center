@@ -93,7 +93,7 @@ class ArtActivity : BaseActivity() {
                             if (count(response.body().artList) > 0) pageNum++
                         }
 
-                        mAdapter.updateData(list).notifyDataSetChanged()
+                        mAdapter.updateData(list)
                     }
 
                     override fun onFinish() {

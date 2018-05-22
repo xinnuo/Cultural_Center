@@ -17,11 +17,10 @@ import kotlinx.android.synthetic.main.fragment_special_first.*
 
 class SocietyFirstFragment : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? =
-            inflater!!.inflate(R.layout.fragment_special_first, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+            inflater.inflate(R.layout.fragment_special_first, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init_title()
 
@@ -45,7 +44,7 @@ class SocietyFirstFragment : BaseFragment() {
     override fun getData() {
         OkGo.post<ClubModel>(BaseHttp.club_introduce)
                 .tag(this@SocietyFirstFragment)
-                .params("clubId", arguments.getString("clubId"))
+                .params("clubId", arguments!!.getString("clubId"))
                 .execute(object : JacksonDialogCallback<ClubModel>(activity, ClubModel::class.java, true) {
 
                     @SuppressLint("SetTextI18n")

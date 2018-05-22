@@ -24,11 +24,11 @@ class SpecialSecondFragment : BaseFragment() {
 
     private val list = ArrayList<Any>()
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
-            inflater!!.inflate(R.layout.fragment_special_second, container, false)
+            inflater.inflate(R.layout.fragment_special_second, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init_title()
 
@@ -55,7 +55,7 @@ class SpecialSecondFragment : BaseFragment() {
                     injector.text(R.id.item_music_title, data.culturevideoName)
 
                             .with<ImageView>(R.id.item_music_img) { view ->
-                                GlideApp.with(activity)
+                                GlideApp.with(activity!!)
                                         .load(BaseHttp.baseImg + data.culturevideoHead)
                                         .placeholder(R.mipmap.not_2) // 等待时的图片
                                         .error(R.mipmap.not_2)       // 加载失败的图片
@@ -78,7 +78,7 @@ class SpecialSecondFragment : BaseFragment() {
     override fun getData(pindex: Int) {
         OkGo.post<CultureModel>(BaseHttp.culture_video)
                 .tag(this@SpecialSecondFragment)
-                .params("cultureId", arguments.getString("cultureId"))
+                .params("cultureId", arguments!!.getString("cultureId"))
                 .params("page", pindex)
                 .execute(object : JacksonDialogCallback<CultureModel>(activity, CultureModel::class.java) {
 

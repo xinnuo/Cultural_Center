@@ -14,7 +14,6 @@ import com.ruanmeng.cultural_center.NoticeDetailActivity
 import com.ruanmeng.cultural_center.R
 import com.ruanmeng.model.ClubModel
 import com.ruanmeng.model.CommonData
-import com.ruanmeng.model.CultureModel
 import com.ruanmeng.share.BaseHttp
 import kotlinx.android.synthetic.main.layout_empty.*
 import kotlinx.android.synthetic.main.layout_list.*
@@ -24,11 +23,11 @@ class SocietyThirdFragment : BaseFragment() {
 
     private val list = ArrayList<Any>()
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
-            inflater!!.inflate(R.layout.fragment_special_fourth, container, false)
+            inflater.inflate(R.layout.fragment_special_fourth, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init_title()
 
@@ -40,7 +39,7 @@ class SocietyThirdFragment : BaseFragment() {
         empty_hint.text = "暂无资讯信息！"
 
         swipe_refresh.refresh { getData(1) }
-        recycle_list.load_Linear(activity, swipe_refresh) {
+        recycle_list.load_Linear(activity!!, swipe_refresh) {
             if (!isLoadingMore) {
                 isLoadingMore = true
                 getData(pageNum)
@@ -57,7 +56,7 @@ class SocietyThirdFragment : BaseFragment() {
                             .visibility(R.id.item_first_divider2, if (list.indexOf(data) != list.size - 1) View.GONE else View.VISIBLE)
 
                             .with<ImageView>(R.id.item_first_img) { view ->
-                                GlideApp.with(context)
+                                GlideApp.with(context!!)
                                         .load(BaseHttp.baseImg + data.newsHead)
                                         .placeholder(R.mipmap.not_2) //等待时的图片
                                         .error(R.mipmap.not_2)       //加载失败的图片
@@ -77,7 +76,7 @@ class SocietyThirdFragment : BaseFragment() {
     override fun getData(pindex: Int) {
         OkGo.post<ClubModel>(BaseHttp.club_news)
                 .tag(this@SocietyThirdFragment)
-                .params("clubId", arguments.getString("clubId"))
+                .params("clubId", arguments!!.getString("clubId"))
                 .params("page", pindex)
                 .execute(object : JacksonDialogCallback<ClubModel>(activity, ClubModel::class.java) {
 

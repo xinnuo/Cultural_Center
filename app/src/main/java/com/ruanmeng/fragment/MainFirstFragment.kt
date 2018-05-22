@@ -38,7 +38,7 @@ class MainFirstFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_main_first, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init_title()
 
@@ -51,7 +51,7 @@ class MainFirstFragment : BaseFragment() {
         tv_nav_title.text = "首页"
 
         swipe_refresh.refresh { getData() }
-        recycle_list.load_Linear(activity, swipe_refresh)
+        activity?.let { recycle_list.load_Linear(it, swipe_refresh) }
 
         mAdapter = SlimAdapter.create()
                 .register<String>(R.layout.header_first) { _, injector ->
@@ -59,9 +59,7 @@ class MainFirstFragment : BaseFragment() {
                         val mLoopAdapter = LoopAdapter(this@MainFirstFragment.activity, view)
                         view.apply {
                             setAdapter(mLoopAdapter)
-                            setOnItemClickListener { position ->
-                                //轮播图点击事件
-                            }
+                            setOnItemClickListener { /*//轮播图点击事件*/ }
                         }
 
                         val imgs = ArrayList<String>()
@@ -86,7 +84,7 @@ class MainFirstFragment : BaseFragment() {
                             .visibility(R.id.item_first_divider3, if (list.indexOf(data) != list.size - 1) View.GONE else View.VISIBLE)
 
                             .with<ImageView>(R.id.item_first_img) { view ->
-                                GlideApp.with(context)
+                                GlideApp.with(activity!!)
                                         .load(BaseHttp.baseImg + data.newsHead)
                                         .placeholder(R.mipmap.not_2) //等待时的图片
                                         .error(R.mipmap.not_2)       //加载失败的图片
@@ -122,7 +120,7 @@ class MainFirstFragment : BaseFragment() {
                             addItems(response.body().news)
                         }
 
-                        mAdapter.updateData(list).notifyDataSetChanged()
+                        mAdapter.updateData(list)
                     }
 
                     override fun onFinish() {

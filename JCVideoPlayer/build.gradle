@@ -4,7 +4,6 @@ apply from: '../dependency.gradle'
 
 android {
     compileSdkVersion versions.compileSdkVersion
-    buildToolsVersion versions.buildToolsVersion
 
     defaultConfig {
         minSdkVersion versions.minSdkVersion
@@ -23,7 +22,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:' + versions.supportLibraryVersion
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:' + versions.supportLibraryVersion
 }

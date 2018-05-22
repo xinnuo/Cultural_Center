@@ -17,11 +17,11 @@ import kotlinx.android.synthetic.main.fragment_special_first.*
 
 class SpecialFirstFragment : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
-            inflater!!.inflate(R.layout.fragment_special_first, container, false)
+            inflater.inflate(R.layout.fragment_special_first, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init_title()
 
@@ -45,7 +45,7 @@ class SpecialFirstFragment : BaseFragment() {
     override fun getData() {
         OkGo.post<CultureModel>(BaseHttp.culture_introduce)
                 .tag(this@SpecialFirstFragment)
-                .params("cultureId", arguments.getString("cultureId"))
+                .params("cultureId", arguments!!.getString("cultureId"))
                 .execute(object : JacksonDialogCallback<CultureModel>(activity, CultureModel::class.java, true) {
 
                     @SuppressLint("SetTextI18n")
