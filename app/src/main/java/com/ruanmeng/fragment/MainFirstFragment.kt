@@ -30,8 +30,7 @@ class MainFirstFragment : BaseFragment() {
     //调用这个方法切换时不会释放掉Fragment
     override fun setMenuVisibility(menuVisible: Boolean) {
         super.setMenuVisibility(menuVisible)
-        if (this.view != null)
-            this.view!!.visibility = if (menuVisible) View.VISIBLE else View.GONE
+        this.view?.visibility = if (menuVisible) View.VISIBLE else View.GONE
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

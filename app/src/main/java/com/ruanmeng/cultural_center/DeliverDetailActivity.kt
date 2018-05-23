@@ -140,7 +140,7 @@ class DeliverDetailActivity : BaseActivity() {
                                 val mLoopAdapter = LoopAdapter(baseContext, deliver_banner)
                                 deliver_banner.apply {
                                     setAdapter(mLoopAdapter)
-                                    setOnItemClickListener { position -> }
+                                    setOnItemClickListener {  }
                                 }
                                 val imgs = data.imgs.split(",")
                                 mLoopAdapter.setImgs(imgs)

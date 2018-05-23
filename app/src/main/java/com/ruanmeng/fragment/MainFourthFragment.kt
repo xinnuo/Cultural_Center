@@ -19,8 +19,7 @@ class MainFourthFragment : BaseFragment() {
     //调用这个方法切换时不会释放掉Fragment
     override fun setMenuVisibility(menuVisible: Boolean) {
         super.setMenuVisibility(menuVisible)
-        if (this.view != null)
-            this.view!!.visibility = if (menuVisible) View.VISIBLE else View.GONE
+        this.view?.visibility = if (menuVisible) View.VISIBLE else View.GONE
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -52,10 +51,8 @@ class MainFourthFragment : BaseFragment() {
         fourth_collect.setOnClickListener { startActivity(CollectActivity::class.java) }
         fourth_vol.setOnClickListener     { startActivity(VolunteerBecomeActivity::class.java) }
         fourth_vol.setOnClickListener     {
-            if (getBoolean("voulunteer"))
-                startActivity(VolunteerMineActivity::class.java)
-            else
-                startActivity(VolunteerBecomeActivity::class.java)
+            if (getBoolean("voulunteer")) startActivity(VolunteerMineActivity::class.java)
+            else startActivity(VolunteerBecomeActivity::class.java)
         }
     }
 

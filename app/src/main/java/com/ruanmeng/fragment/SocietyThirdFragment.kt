@@ -90,7 +90,7 @@ class SocietyThirdFragment : BaseFragment() {
                             if (count(response.body().newsList) > 0) pageNum++
                         }
 
-                        mAdapter.updateData(list).notifyDataSetChanged()
+                        mAdapter.updateData(list)
                     }
 
                     override fun onFinish() {

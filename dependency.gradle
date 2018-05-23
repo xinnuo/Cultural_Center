@@ -9,5 +9,5 @@ ext.versions = [
         supportLibraryVersion: '27.1.1',
         constraintLayoutVersion: '1.1.0',
         multidexVersion: '1.0.3',
-        glideVersion: '4.2.0',
+        glideVersion: '4.6.1',
 ]

@@ -162,7 +162,7 @@ class CultureActivity : BaseActivity() {
         swipe_refresh.isRefreshing = true
         if (list.size > 0) {
             list.clear()
-            mAdapter.updateData(list).notifyDataSetChanged()
+            mAdapter.notifyDataSetChanged()
         }
         pageNum = 1
         getData(pageNum)
@@ -188,7 +188,7 @@ class CultureActivity : BaseActivity() {
                             if (count(response.body().las) > 0) pageNum++
                         }
 
-                        mAdapter.updateData(list).notifyDataSetChanged()
+                        mAdapter.updateData(list)
                     }
 
                     override fun onFinish() {

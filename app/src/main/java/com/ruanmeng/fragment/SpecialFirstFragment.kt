@@ -57,9 +57,7 @@ class SpecialFirstFragment : BaseFragment() {
                             val mLoopAdapter = LoopAdapter(activity, special_banner)
                             special_banner.apply {
                                 setAdapter(mLoopAdapter)
-                                setOnItemClickListener { position ->
-                                    //轮播图点击事件
-                                }
+                                setOnItemClickListener { /*//轮播图点击事件*/ }
                             }
                             val imgs = data.imgs.split(",")
                             mLoopAdapter.setImgs(imgs)

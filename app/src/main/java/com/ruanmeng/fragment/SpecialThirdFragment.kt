@@ -63,7 +63,7 @@ class SpecialThirdFragment : BaseFragment() {
 
                         view.setOnClickListener {
                             val imgs = ArrayList<String>()
-                            list.mapTo(imgs) { (it as CommonData).imgs }
+                            list.mapTo(imgs) { BaseHttp.baseImg + (it as CommonData).imgs }
 
                             MNImageBrowser.showImageBrowser(
                                     activity,

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
 import com.ruanmeng.base.*
 import com.ruanmeng.cultural_center.*
 import com.ruanmeng.model.CommonData
@@ -20,8 +19,7 @@ class MainSecondFragment : BaseFragment() {
     //调用这个方法切换时不会释放掉Fragment
     override fun setMenuVisibility(menuVisible: Boolean) {
         super.setMenuVisibility(menuVisible)
-        if (this.view != null)
-            this.view!!.visibility = if (menuVisible) View.VISIBLE else View.GONE
+        this.view?.visibility = if (menuVisible) View.VISIBLE else View.GONE
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -74,42 +72,42 @@ class MainSecondFragment : BaseFragment() {
                 })
 
             if (mlist.any { it.barName == "非遗传承" })
-            items.add(CommonData().apply {
-                title = "非遗传承"
-                content = "Inheriting the culture"
-                resId = R.mipmap.bigicon_chuancheng
-            })
+                items.add(CommonData().apply {
+                    title = "非遗传承"
+                    content = "Inheriting the culture"
+                    resId = R.mipmap.bigicon_chuancheng
+                })
 
             if (mlist.any { it.barName == "网上展厅" })
-            items.add(CommonData().apply {
-                title = "网上展厅"
-                content = "Online exhibition hall"
-                resId = R.mipmap.bigicon_wangshang
-            })
+                items.add(CommonData().apply {
+                    title = "网上展厅"
+                    content = "Online exhibition hall"
+                    resId = R.mipmap.bigicon_wangshang
+                })
 
             if (mlist.any { it.barName == "文化专题" })
-            items.add(CommonData().apply {
-                title = "文化专题"
-                content = "Special culture"
-                resId = R.mipmap.bigicon_zhuanti
-            })
+                items.add(CommonData().apply {
+                    title = "文化专题"
+                    content = "Special culture"
+                    resId = R.mipmap.bigicon_zhuanti
+                })
 
             if (mlist.any { it.barName == "群文社团" })
-            items.add(CommonData().apply {
-                title = "群文社团"
-                content = "community"
-                resId = R.mipmap.bigicon_shetuan
-            })
+                items.add(CommonData().apply {
+                    title = "群文社团"
+                    content = "community"
+                    resId = R.mipmap.bigicon_shetuan
+                })
 
             if (mlist.any { it.barName == "文化志愿" })
-            items.add(CommonData().apply {
-                title = "文化志愿"
-                content = "Volunteer activities"
-                resId = R.mipmap.bigicon_zhiyuan
-            })
+                items.add(CommonData().apply {
+                    title = "文化志愿"
+                    content = "Volunteer activities"
+                    resId = R.mipmap.bigicon_zhiyuan
+                })
         }
 
-        (second_list.adapter as SlimAdapter).updateData(items).notifyDataSetChanged()
+        (second_list.adapter as SlimAdapter).updateData(items)
     }
 
     override fun init_title() {

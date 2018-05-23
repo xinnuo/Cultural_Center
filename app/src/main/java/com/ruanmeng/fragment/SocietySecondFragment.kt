@@ -81,7 +81,7 @@ class SocietySecondFragment : BaseFragment() {
                             if (count(response.body().clubMemberList) > 0) pageNum++
                         }
 
-                        mAdapter.updateData(list).notifyDataSetChanged()
+                        mAdapter.updateData(list)
                     }
 
                     override fun onFinish() {

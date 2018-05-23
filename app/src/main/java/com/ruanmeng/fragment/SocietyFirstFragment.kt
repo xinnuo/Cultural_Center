@@ -17,7 +17,8 @@ import kotlinx.android.synthetic.main.fragment_special_first.*
 
 class SocietyFirstFragment : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_special_first, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

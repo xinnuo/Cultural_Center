@@ -30,7 +30,7 @@ class BookEditActivity : BaseActivity() {
 
         @Suppress("UNCHECKED_CAST")
         list = intent.getSerializableExtra("list") as ArrayList<BookData>
-        (book_edit_list.adapter as SlimAdapter).updateData(list).notifyDataSetChanged()
+        (book_edit_list.adapter as SlimAdapter).updateData(list)
     }
 
     override fun init_title() {
@@ -48,7 +48,7 @@ class BookEditActivity : BaseActivity() {
 
                                 .clicked(R.id.item_book_del) {
                                     list.remove(data)
-                                    (book_edit_list.adapter as SlimAdapter).updateData(list).notifyDataSetChanged()
+                                    (book_edit_list.adapter as SlimAdapter).notifyDataSetChanged()
                                 }
                     }
                     .attachTo(book_edit_list)

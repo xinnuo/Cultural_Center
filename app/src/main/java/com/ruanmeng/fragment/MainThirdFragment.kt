@@ -34,8 +34,7 @@ class MainThirdFragment : BaseFragment() {
     //调用这个方法切换时不会释放掉Fragment
     override fun setMenuVisibility(menuVisible: Boolean) {
         super.setMenuVisibility(menuVisible)
-        if (this.view != null)
-            this.view!!.visibility = if (menuVisible) View.VISIBLE else View.GONE
+        this.view?.visibility = if (menuVisible) View.VISIBLE else View.GONE
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -56,19 +55,19 @@ class MainThirdFragment : BaseFragment() {
 
         third_tab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 
-                override fun onTabReselected(tab: TabLayout.Tab) {}
-                override fun onTabUnselected(tab: TabLayout.Tab) {}
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
 
-                override fun onTabSelected(tab: TabLayout.Tab) {
-                    newsTypeId = list_item[tab.position].newsTypeId
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                newsTypeId = list_item[tab.position].newsTypeId
 
-                    activity!!.window.decorView.postDelayed({ activity!!.runOnUiThread {
-                        OkGo.getInstance().cancelTag(this@MainThirdFragment)
-                        updateList()
-                    } }, 300)
-                }
+                activity!!.window.decorView.postDelayed({
+                    OkGo.getInstance().cancelTag(this@MainThirdFragment)
+                    updateList()
+                }, 300)
+            }
 
-            })
+        })
 
         swipe_refresh.refresh { getData(1) }
         recycle_list.load_Linear(activity!!, swipe_refresh) {
@@ -137,7 +136,7 @@ class MainThirdFragment : BaseFragment() {
                             if (count(response.body().newsList) > 0) pageNum++
                         }
 
-                        mAdapter.updateData(list).notifyDataSetChanged()
+                        mAdapter.updateData(list)
                     }
 
                     override fun onFinish() {
@@ -155,7 +154,7 @@ class MainThirdFragment : BaseFragment() {
         swipe_refresh.isRefreshing = true
         if (list.size > 0) {
             list.clear()
-            mAdapter.updateData(list).notifyDataSetChanged()
+            mAdapter.notifyDataSetChanged()
         }
         pageNum = 1
         getData(pageNum)
