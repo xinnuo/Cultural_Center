@@ -10,11 +10,14 @@ import com.lzy.okgo.model.Response
 import com.ruanmeng.base.*
 import com.ruanmeng.model.CommonData
 import com.ruanmeng.model.CommonModel
+import com.ruanmeng.model.MainMessageEvent
 import com.ruanmeng.share.BaseHttp
 import com.willy.ratingbar.ScaleRatingBar
 import kotlinx.android.synthetic.main.layout_empty.*
 import kotlinx.android.synthetic.main.layout_list.*
 import net.idik.lib.slimadapter.SlimAdapter
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
 
 class VenueActivity : BaseActivity() {
 
@@ -24,6 +27,8 @@ class VenueActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_venue)
         init_title("场馆")
+
+        EventBus.getDefault().register(this@VenueActivity)
 
         swipe_refresh.isRefreshing = true
         getData(pageNum)
@@ -98,9 +103,34 @@ class VenueActivity : BaseActivity() {
                         swipe_refresh.isRefreshing = false
                         isLoadingMore = false
 
-                        empty_view.visibility = if (list.size == 0) View.VISIBLE else View.GONE
+                        empty_view.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
                     }
 
                 })
+    }
+
+    fun updateList() {
+        swipe_refresh.isRefreshing = true
+
+        empty_view.visibility = View.GONE
+        if (list.isNotEmpty()) {
+            list.clear()
+            mAdapter.notifyDataSetChanged()
+        }
+
+        pageNum = 1
+        getData(pageNum)
+    }
+
+    override fun finish() {
+        EventBus.getDefault().unregister(this@VenueActivity)
+        super.finish()
+    }
+
+    @Subscribe
+    fun onMessageEvent(event: MainMessageEvent) {
+        when (event.name) {
+            "场馆评分" -> updateList()
+        }
     }
 }

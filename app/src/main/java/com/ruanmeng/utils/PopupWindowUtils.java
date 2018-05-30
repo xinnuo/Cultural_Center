@@ -100,7 +100,7 @@ public class PopupWindowUtils {
             }
         });
 
-        tap_status.setAdapter(adapter_status = new TagAdapter<String>(new String[]{"全部", "活动报名", "报名截止", "活动进行中", "活动结束"}) {
+        tap_status.setAdapter(adapter_status = new TagAdapter<String>(new String[]{"全部", "活动未开始", "活动报名", "报名截止", "活动进行中", "活动结束"}) {
             @Override
             public View getView(FlowLayout parent, int position, String str) {
                 LayoutInflater mInflater = LayoutInflater.from(context);
@@ -166,7 +166,7 @@ public class PopupWindowUtils {
                 }
                 for (Integer item : tap_status.getSelectedList()) {
                     pos4 = item - 1;
-                    if (item > 0) stypeId = String.valueOf(item - 1);
+                    if (item > 0) stypeId = String.valueOf(item - 2);
                 }
 
                 callBack.doWork(districtId, dateId, programaId, stypeId, pos1, pos2, pos3, pos4);

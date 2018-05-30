@@ -86,21 +86,15 @@ class MainActivity : BaseActivity() {
             R.id.first_venue -> {
                 if (list.isEmpty()) startActivity(VenueActivity::class.java)
                 else {
-                    if (list.any { it.barName == "场馆预定" }) {
-                        startActivity(VenueActivity::class.java)
-                    } else {
-                        toast("该功能暂未开放！")
-                    }
+                    if (list.any { it.barName == "场馆预定" }) startActivity(VenueActivity::class.java)
+                    else toast("该功能暂未开放！")
                 }
             }
             R.id.first_culture -> {
                 if (list.isEmpty()) startActivity(CultureActivity::class.java)
                 else {
-                    if (list.any { it.barName == "文化活动" }) {
-                        startActivity(CultureActivity::class.java)
-                    } else {
-                        toast("该功能暂未开放！")
-                    }
+                    if (list.any { it.barName == "文化活动" }) startActivity(CultureActivity::class.java)
+                    else toast("该功能暂未开放！")
                 }
             }
         }

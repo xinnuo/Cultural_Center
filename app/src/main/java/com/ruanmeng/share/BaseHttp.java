@@ -14,13 +14,14 @@ public class BaseHttp {
 
     public static String baseImg = baseUrl + "/";
 
-    public static String index_data = baseIp + "/index_data.rm";         //首页数据
-    public static String activity_data = baseIp + "/activity_data.rm";   //文化活动（筛选）
-    public static String activity_detil = baseIp + "/activity_detil.rm"; //活动详情
-    public static String programa_list = baseIp + "/programa_list.rm";   //活动栏目
-    public static String activity_apply = baseIp + "/activity_apply.rm"; //活动报名
-    public static String get_district = baseIp + "/get_district.rm";     //地区筛选
-    public static String bar_list = baseIp + "/bar_list.rm";             //可用模块
+    public static String index_data = baseIp + "/index_data.rm";           //首页数据
+    public static String activity_data = baseIp + "/activity_data.rm";     //文化活动（筛选）
+    public static String activity_detil = baseIp + "/activity_detil.rm";   //活动详情
+    public static String programa_list = baseIp + "/programa_list.rm";     //活动栏目
+    public static String activity_apply = baseIp + "/activity_apply.rm";   //活动报名
+    public static String un_useractivity = baseIp + "/un_useractivity.rm"; //取消报名
+    public static String get_district = baseIp + "/get_district.rm";       //地区筛选
+    public static String bar_list = baseIp + "/bar_list.rm";               //可用模块
 
     public static String venue_index = baseIp + "/venue_index.rm";                 //场馆
     public static String venue_details = baseIp + "/venue_details.rm";             //场馆详细信息
@@ -67,6 +68,7 @@ public class BaseHttp {
     public static String volunteer_all = baseIp + "/volunteer_all.rm";                           //全体志愿者
     public static String volunteer_applyForActivity = baseIp + "/volunteer_applyForActivity.rm"; //志愿者申请服务某活动
     public static String volunteer_activity = baseIp + "/volunteer_activity.rm";                 //志愿者活动
+    public static String volunteeractivity_detil = baseIp + "/volunteeractivity_detil.rm";       //志愿者活动详情
     public static String volunteer_slider_data = baseIp + "/volunteer_slider_data.rm";           //志愿者页面轮播图
 
     public static String news_detail = baseIp + "/news_detail.rm";               //新闻详情

@@ -66,14 +66,12 @@ class MainFourthFragment : BaseFragment() {
 
                         val obj = JSONObject(response.body()).getJSONObject("userMsg")
 
-                        putBoolean("voulunteer", JSONObject(response.body()).getBoolean("voulunteer"))
-                        putString("hotline", JSONObject(response.body()).getString("lxwm"))
+                        putBoolean("voulunteer", JSONObject(response.body()).optBoolean("voulunteer"))
+                        putString("hotline", JSONObject(response.body()).optString("lxwm"))
 
-                        putString("mobile", obj.getString("mobile"))
-                        putString("nickName", obj.getString("nickName"))
-                        putString("sex", obj.getString("sex"))
-                        putString("token", obj.getString("userInfoId"))
-                        putString("userhead", obj.getString("userhead"))
+                        putString("nickName", obj.optString("nickName"))
+                        putString("sex", obj.optString("sex"))
+                        putString("userhead", obj.optString("userhead"))
 
                         fourth_name.text = getString("nickName")
                         fourth_phone.text = getString("mobile")

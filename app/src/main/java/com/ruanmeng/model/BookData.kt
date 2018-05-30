@@ -41,6 +41,9 @@ data class BookData(
         var thatDay: String = "",
         var week: String = "",
 
+        var reserveStartDate: String = "",
+        var reserveEndDate: String = "",
+
         var contacts: String = "",
         var expenses: String = "",
         var galleryful: String = "",

@@ -44,11 +44,11 @@ class VolunteerDetailActivity : BaseActivity() {
                     injector.text(R.id.volunteer_detail_name, data?.name ?: "")
                             .text(R.id.volunteer_detail_label, data?.synopsis ?: "")
                             .text(R.id.volunteer_detail_job,
-                                    if (data == null) "" else when(data!!.sex) {
+                                    data?.let { when(it.sex) {
                                         "1" -> "男"
-                                        "2" -> "女"
+                                        "0" -> "女"
                                         else -> ""
-                                    })
+                                    } } ?: "")
 
                             .with<RoundedImageView>(R.id.volunteer_detail_img) { view ->
                                 GlideApp.with(baseContext)

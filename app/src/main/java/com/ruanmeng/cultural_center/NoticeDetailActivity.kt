@@ -182,13 +182,12 @@ class NoticeDetailActivity : BaseActivity() {
                             notice_detail_title.text = data.newsTitle
                             notice_detail_time.text = data.createDate
 
-                            val str = "<meta " +
-                                    "name=\"viewport\" " +
-                                    "content=\"width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\">" +
-                                    "<style>" +
-                                    ".con{ width:100%; margin:0 auto; color:#fff; color:#666; padding:0.5em 0; overflow:hidden; display:block; font-size:0.92em; line-height:1.8em;}\n" +
+                            val str = "<meta name=\"viewport\" " +
+                                    "content=\"width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\" />\n" +
+                                    "<style>\n" +
+                                    ".con{ width:100%; margin:0 auto; color:#666; padding:0.5em 0; overflow:hidden; display:block; font-size:0.92em; line-height:1.8em;}\n" +
                                     ".con h1,h2,h3,h4,h5,h6{ font-size:1em; }\n " +
-                                    "img{ max-width: 100% !important; display:block; height:auto !important; }" +
+                                    "img{ max-width: 100% !important; display:block; height:auto !important; }\n" +
                                     "*{ max-width:100% !important; }\n" +
                                     "</style>"
 

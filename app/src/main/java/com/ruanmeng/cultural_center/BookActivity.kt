@@ -82,9 +82,12 @@ class BookActivity : BaseActivity() {
                                     view.setOnCheckedChangeListener { _, isChecked ->
                                         data.isCheck = isChecked
                                         if (isChecked) {
-                                            if (!list_check.contains(data)) list_check.add(data)
+                                            if (!list_check.any { it.reservetimeitemId == data.reservetimeitemId }) list_check.add(data)
                                         } else {
-                                            if (list_check.contains(data)) list_check.remove(data)
+                                            if (list_check.any { it.reservetimeitemId == data.reservetimeitemId }) {
+                                                val positon = list_check.indexOfFirst { it.reservetimeitemId == data.reservetimeitemId }
+                                                list_check.removeAt(positon)
+                                            }
                                         }
                                     }
                                     view.isChecked = data.isCheck
@@ -141,13 +144,18 @@ class BookActivity : BaseActivity() {
                 .tag(this@BookActivity)
                 .params("hallId", hallId)
                 .params("oneDay", oneDay)
+                .params("userInfoId", getString("token"))
                 .execute(object : JacksonDialogCallback<BookModel>(baseContext, BookModel::class.java, true) {
 
                     override fun onSuccess(response: Response<BookModel>) {
                         list_times.clear()
                         list_times.addItems(response.body().couldTimeQuantum)
+                        list_times.forEach { data ->
+                            val item = list_check.find { it.reservetimeitemId == data.reservetimeitemId }
+                            if (item != null) data.isCheck = item.isCheck
+                        }
 
-                        (book_list.adapter as SlimAdapter).updateData(list_times).notifyDataSetChanged()
+                        (book_list.adapter as SlimAdapter).updateData(list_times)
 
                         val list_days = ArrayList<BookData>()
                         val list_items = ArrayList<CalendarDay>()

@@ -2,8 +2,10 @@ package com.ruanmeng.cultural_center
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.view.View
 import android.widget.ImageView
+import com.lzy.extend.StringDialogCallback
 import com.lzy.extend.jackson.JacksonDialogCallback
 import com.lzy.okgo.OkGo
 import com.lzy.okgo.model.Response
@@ -32,16 +34,18 @@ class CultureMineActivity : BaseActivity() {
 
     override fun init_title() {
         super.init_title()
+        radio_check1.text = "已报名"
+        radio_check2.text = "已取消"
         radio_group.setOnCheckedChangeListener { _, checkedId ->
             OkGo.getInstance().cancelTag(this@CultureMineActivity)
 
             when(checkedId) {
                 R.id.radio_check1 -> {
-                    stypeId = 0
+                    stypeId = 2
                     updateList()
                 }
                 R.id.radio_check2 -> {
-                    stypeId = 1
+                    stypeId = 3
                     updateList()
                 }
             }
@@ -58,10 +62,11 @@ class CultureMineActivity : BaseActivity() {
         }
 
         mAdapter = SlimAdapter.create()
-                .register<CommonData>(R.layout.item_culture_list) { data, injector ->
+                .register<CommonData>(R.layout.item_culture_mine_list) { data, injector ->
                     injector.text(R.id.item_culture_title, data.activityTitle)
-                            .text(R.id.item_culture_time, "活动时间：" + data.activityStartDate + " - " + data.activityEndDate)
-                            .text(R.id.item_culture_address, "活动地点：" + data.address)
+                            .text(R.id.item_culture_time, "时间：${data.activityStartDate} - ${data.activityEndDate.substring(11)}")
+                            .text(R.id.item_culture_address, "地点：" + data.address)
+                            .visibility(R.id.item_culture_cancel, if (data.stypeId == "0" && stypeId != 3) View.VISIBLE else View.GONE)
 
                             .with<ImageView>(R.id.item_culture_img) { view ->
                                 GlideApp.with(baseContext)
@@ -73,10 +78,37 @@ class CultureMineActivity : BaseActivity() {
                                         .into(view)
                             }
 
+                            .clicked(R.id.item_culture_cancel) {
+                                AlertDialog.Builder(baseContext)
+                                        .setTitle("温馨提示")
+                                        .setMessage("确定要取消报名吗？")
+                                        .setPositiveButton("确定") { dialog, _ ->
+                                            dialog.dismiss()
+
+                                            OkGo.post<String>(BaseHttp.un_useractivity)
+                                                    .tag(this@CultureMineActivity)
+                                                    .params("userActivityId", data.userActivityId)
+                                                    .execute(object : StringDialogCallback(baseContext) {
+
+                                                        override fun onSuccessResponse(response: Response<String>, msg: String, msgCode: String) {
+                                                            toast(msg)
+                                                            val position = list.indexOf(data)
+                                                            list.remove(data)
+                                                            mAdapter.notifyItemRemoved(position)
+                                                        }
+
+                                                    })
+                                        }
+                                        .setNegativeButton("取消") { dialog, _ -> dialog.dismiss() }
+                                        .create()
+                                        .show()
+                            }
+
                             .clicked(R.id.item_culture) {
                                 val intent = Intent(baseContext, CultureDetailActivity::class.java)
                                 intent.putExtra("activityId", data.activityId)
-                                intent.putExtra("isMine", true)
+                                intent.putExtra("stypeId", data.stypeId)
+                                intent.putExtra("isMine", false)
                                 startActivity(intent)
                             }
                 }

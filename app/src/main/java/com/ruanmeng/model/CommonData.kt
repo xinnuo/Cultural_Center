@@ -54,6 +54,8 @@ data class CommonData(
         //我的场地预约
         var reserveEndDate: String = "",
         var reserveStartDate: String = "",
+        var reserveDate: String = "",
+        var reserveitem: ArrayList<BookData>? = ArrayList(),
 
         //展厅列表
         var hallId: String = "",
@@ -106,6 +108,7 @@ data class CommonData(
         var activityEndDate: String = "",
         var activityHead: String = "",
         var activityId: String = "",
+        var userActivityId: String = "",
         var activityStartDate: String = "",
         var activityTitle: String = "",
         var activityContent: String = "",
@@ -113,6 +116,7 @@ data class CommonData(
         var peopleCount: String = "",
         var stype: String = "",
         var stypeId: String = "",
+        var externalLink: String = "",
 
         //地区筛选
         var areaId: String = "",

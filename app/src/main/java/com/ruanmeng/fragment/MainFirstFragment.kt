@@ -1,6 +1,7 @@
 package com.ruanmeng.fragment
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +26,7 @@ import net.idik.lib.slimadapter.SlimAdapter
 class MainFirstFragment : BaseFragment() {
 
     private val list = ArrayList<Any>()
-    private val list_slider = ArrayList<Any>()
+    private val list_slider = ArrayList<CommonData>()
 
     //调用这个方法切换时不会释放掉Fragment
     override fun setMenuVisibility(menuVisible: Boolean) {
@@ -58,11 +59,15 @@ class MainFirstFragment : BaseFragment() {
                         val mLoopAdapter = LoopAdapter(this@MainFirstFragment.activity, view)
                         view.apply {
                             setAdapter(mLoopAdapter)
-                            setOnItemClickListener { /*//轮播图点击事件*/ }
+                            setOnItemClickListener {
+                                if (list_slider[it].href.isNotEmpty()) {
+                                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(list_slider[it].href)))
+                                }
+                            }
                         }
 
                         val imgs = ArrayList<String>()
-                        list_slider.mapTo(imgs) { (it as CommonData).sliderImg }
+                        list_slider.mapTo(imgs) { it.sliderImg }
                         mLoopAdapter.setImgs(imgs)
                         if (imgs.size <= 1) {
                             view.pause()

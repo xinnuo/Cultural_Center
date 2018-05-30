@@ -32,6 +32,8 @@ class BookMineActivity : BaseActivity() {
 
     override fun init_title() {
         super.init_title()
+        radio_check1.text = "未通过"
+        radio_check2.text = "已通过"
         radio_group.setOnCheckedChangeListener { _, checkedId ->
             OkGo.getInstance().cancelTag(this@BookMineActivity)
 
@@ -60,8 +62,10 @@ class BookMineActivity : BaseActivity() {
         mAdapter = SlimAdapter.create()
                 .register<CommonData>(R.layout.item_book_list) { data, injector ->
                     injector.text(R.id.item_book_title, data.venueName)
-                            .text(R.id.item_book_content, "地址：" + data.hallName)
-                            .text(R.id.item_book_time, data.reserveStartDate + " - " + data.reserveEndDate)
+                            .text(R.id.item_book_content, data.address)
+                            .text(R.id.item_book_time, "申请时间：${data.reserveDate}")
+                            .visibility(R.id.item_book_divider1, if (list.indexOf(data) == list.size - 1) View.GONE else View.VISIBLE)
+                            .visibility(R.id.item_book_divider2, if (list.indexOf(data) != list.size - 1) View.GONE else View.VISIBLE)
 
                             .with<ImageView>(R.id.item_book_img) { view ->
                                 GlideApp.with(baseContext)
@@ -71,6 +75,12 @@ class BookMineActivity : BaseActivity() {
                                         .centerCrop()
                                         .dontAnimate()
                                         .into(view)
+                            }
+
+                            .clicked(R.id.item_book) {
+                                val intent = Intent(baseContext, BookTimeActivity::class.java)
+                                intent.putExtra("list", data.reserveitem)
+                                startActivity(intent)
                             }
                 }
                 .attachTo(recycle_list)

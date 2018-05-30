@@ -80,8 +80,8 @@ class LoginActivity : BaseActivity() {
                                 val obj = JSONObject(response.body()).getJSONObject("object")
 
                                 putBoolean("isLogin", true)
-                                putString("mobile", obj.getString("mobile"))
-                                putString("token", obj.getString("token"))
+                                putString("mobile", obj.optString("mobile"))
+                                putString("token", obj.optString("token"))
 
                                 ActivityStack.getScreenManager().popActivities(this@LoginActivity::class.java)
                             }

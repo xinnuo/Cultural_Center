@@ -32,7 +32,7 @@ class WebActivity : BaseActivity() {
                                         "<meta charset=\"utf-8\">" +
                                         "<style type=\"text/css\">" +
                                         "body{ padding:0; margin:0; }\n" +
-                                        ".con{ width:95%; margin:0 auto; color:#fff; color:#666; padding:0.5em 0; overflow:hidden; display:block; font-size:0.92em; line-height:1.8em; }\n" +
+                                        ".con{ width:95%; margin:0 auto; color:#666; padding:0.5em 0; overflow:hidden; display:block; font-size:0.92em; line-height:1.8em; }\n" +
                                         ".con h1,h2,h3,h4,h5,h6{ font-size:1em; }\n " +
                                         "img{ width:auto; max-width: 100% !important; height:auto !important; margin:0 auto; display:block; }\n" +
                                         "*{ max-width:100% !important; }\n" +
@@ -61,12 +61,12 @@ class WebActivity : BaseActivity() {
                                         "<meta charset=\"utf-8\">" +
                                         "<style type=\"text/css\">" +
                                         "body{ padding:0; margin:0; }\n" +
-                                        ".con{ width:95%; margin:0 auto; color:#fff; color:#666; padding:0.5em 0; overflow:hidden; display:block; font-size:0.92em; line-height:1.8em; }\n" +
+                                        ".con{ width:95%; margin:0 auto; color:#666; padding:0.5em 0; overflow:hidden; display:block; font-size:0.92em; line-height:1.8em; }\n" +
                                         ".con h1,h2,h3,h4,h5,h6{ font-size:1em; }\n " +
                                         "img{ width:auto; max-width: 100% !important; height:auto !important; margin:0 auto; display:block; }\n" +
                                         "*{ max-width:100% !important; }\n" +
                                         "</style>\n" +
-                                        "<body style=\"padding:0; margin:0; \">" +
+                                        "<body style=\"padding:0; margin:0;\">" +
                                         "<div class=\"con\">" +
                                         JSONObject(response.body()).getString("help") +
                                         "</div>" +
@@ -90,7 +90,7 @@ class WebActivity : BaseActivity() {
                                         "<meta charset=\"utf-8\">" +
                                         "<style type=\"text/css\">" +
                                         "body{ padding:0; margin:0; }\n" +
-                                        ".con{ width:95%; margin:0 auto; color:#fff; color:#666; padding:0.5em 0; overflow:hidden; display:block; font-size:0.92em; line-height:1.8em; }\n" +
+                                        ".con{ width:95%; margin:0 auto; color:#666; padding:0.5em 0; overflow:hidden; display:block; font-size:0.92em; line-height:1.8em; }\n" +
                                         ".con h1,h2,h3,h4,h5,h6{ font-size:1em; }\n " +
                                         "img{ width:auto; max-width: 100% !important; height:auto !important; margin:0 auto; display:block; }\n" +
                                         "*{ max-width:100% !important; }\n" +
