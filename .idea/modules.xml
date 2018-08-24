@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CalendarView/CalendarView.iml" filepath="$PROJECT_DIR$/CalendarView/CalendarView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Cultural_Center.iml" filepath="$PROJECT_DIR$/Cultural_Center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Cultural_Center.iml" filepath="$PROJECT_DIR$/.idea/Cultural_Center.iml" />
       <module fileurl="file://$PROJECT_DIR$/JCVideoPlayer/JCVideoPlayer.iml" filepath="$PROJECT_DIR$/JCVideoPlayer/JCVideoPlayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/MNImageBrowser/MNImageBrowser.iml" filepath="$PROJECT_DIR$/MNImageBrowser/MNImageBrowser.iml" />
       <module fileurl="file://$PROJECT_DIR$/MNProgressHUD/MNProgressHUD.iml" filepath="$PROJECT_DIR$/MNProgressHUD/MNProgressHUD.iml" />

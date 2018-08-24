@@ -1,7 +1,6 @@
 package com.ruanmeng.cultural_center
 
 import android.annotation.SuppressLint
-import android.content.pm.ActivityInfo
 import android.os.Bundle
 import com.lzy.extend.jackson.JacksonDialogCallback
 import com.lzy.okgo.OkGo
@@ -65,7 +64,7 @@ class RemoteDetailActivity : BaseActivity() {
                             val info = data.courseIntroduce
                             remote_detail_web.loadDataWithBaseURL(BaseHttp.baseImg, "$str<div class=\"con\">$info</div>", "text/html", "utf-8", "")
 
-                            remote_video.setUp(BaseHttp.baseImg + data.video, JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "")
+                            remote_video.setUp(data.viodesPath + data.video, JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "")
 
                             GlideApp.with(baseContext)
                                     .load(BaseHttp.baseImg + data.courseHead)

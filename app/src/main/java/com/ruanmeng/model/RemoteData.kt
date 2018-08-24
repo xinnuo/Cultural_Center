@@ -16,5 +16,6 @@ data class RemoteData(
         var courseId: String = "",
         var courseTitle: String = "",
         var courseIntroduce: String = "",
+        var viodesPath: String = "",
         var video: String = ""
 ) : Serializable
